@@ -1,0 +1,23 @@
+{
+  "name": "vue-statistics",
+  "version": "1.0.0",
+  "description": "vue 统计指令",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltinyho/vue-statistics.git"
+  },
+  "keywords": [
+    "vue",
+    "statistics"
+  ],
+  "author": "ltinyho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ltinyho/vue-statistics/issues"
+  },
+  "homepage": "https://github.com/ltinyho/vue-statistics#readme"
+}
