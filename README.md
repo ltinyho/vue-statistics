@@ -14,7 +14,8 @@ npm install   vue-statistics
 ```js
 import VueStat from 'vue-statistics'
 
-Vue.use(VueStat,{})
+Vue.use(VueStat,{
+track(){}})
 ```
 
 
