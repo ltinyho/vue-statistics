@@ -1,3 +1,4 @@
+const isEqual = require('lodash/isEqual');
 const ctx = '@@stat';
 /*
  * 使用示例
@@ -72,6 +73,13 @@ export default {
                 data: val.data,
               });
             }
+          }
+        } else {
+          if (!isEqual(el[ctx].value, val)) {
+            options.track({
+              name: val.name,
+              data: val.data,
+            });
           }
         }
       },

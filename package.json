@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ltinyho/vue-statistics/issues"
   },
-  "homepage": "https://github.com/ltinyho/vue-statistics#readme"
+  "homepage": "https://github.com/ltinyho/vue-statistics#readme",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
 }
