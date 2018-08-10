@@ -10,7 +10,7 @@ const ctx = '@@stat';
  * options.track 为自定义发送track事件,参数为data
  * */
 module.exports = {
-  install: function (Vue, options = {}) {
+  install(Vue, options = {}) {
     if (!options.track) {
       console.log('请配置 track ');
       return;
@@ -38,7 +38,7 @@ module.exports = {
     };
     const stat = {
       name: 'stat',
-      bind:function(el, binding, vnode) {
+      bind(el, binding, vnode) {
         const value = binding.value;
         el[ctx] = {
           el,
@@ -64,7 +64,7 @@ module.exports = {
           }
         }
       },
-      update:function(el, binding, vnode, oldVnode) {
+      update(el, binding, vnode, oldVnode) {
         const val = binding.value;
         if (val.type === 'page') {
           if (val.data && Object.keys(val.data).length > 0 && !el[ctx].updated) {
@@ -88,7 +88,7 @@ module.exports = {
           }
         }
       },
-      unbind:function(el, binding) {
+      unbind(el, binding) {
         if (el && el[ctx]) {
           const directive = el[ctx];
           directive.el.removeEventListener('click', directive.clickListener);
