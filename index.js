@@ -9,7 +9,7 @@ const ctx = '@@stat';
  * data 为事件属性
  * options.track 为自定义发送track事件,参数为data
  * */
-export default {
+module.exports = {
   install(Vue, options = {}) {
     if (!options.track) {
       console.log('请配置 track ');
