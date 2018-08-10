@@ -19,16 +19,18 @@ export default {
       const directive = this;
       const value = directive.value;
       directive.clickListener = function (e) {
-        if (typeof value === 'string') {
-          options.track(value);
-        } else if (typeof value === 'object') {
-          if (value.name) {
-            options.track({
-              name: value.name,
-              data: value.data,
-            });
-          } else {
-            console.log('事件统计未绑定名称');
+        if (!directive.valueUpdate) {
+          if (typeof value === 'string') {
+            options.track(value);
+          } else if (typeof value === 'object') {
+            if (value.name) {
+              options.track({
+                name: value.name,
+                data: value.data,
+              });
+            } else {
+              console.log('事件统计未绑定名称');
+            }
           }
         }
       }.bind(directive);
@@ -42,6 +44,7 @@ export default {
           el,
           vm: vnode.context,
           value: value,
+          valueUpdate: false,
         };
         const args = arguments;
         el[ctx].vm.$on('hook:mounted', function () {
@@ -76,6 +79,8 @@ export default {
           }
         } else {
           if (!isEqual(el[ctx].value, val)) {
+            el[ctx].valueUpdate = true;
+            el[ctx].value = val;
             options.track({
               name: val.name,
               data: val.data,
